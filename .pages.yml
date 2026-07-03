@@ -34,7 +34,7 @@ content:
       label: Content
       type: collection
       path: content
-      format: yaml-frontmatter
+      format: html
       filename: "{primary}.md"
       view:
         fields: 
