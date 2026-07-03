@@ -13,7 +13,55 @@
     <script type="module" src="https://pyscript.net/releases/2026.3.1/core.js"></script>
 </head>
 <body>
+
     {{ content }}
-    <script type="py" src="./main.py" config="./pyscript.toml" worker terminal></script>
+    
+    <form>
+      <fieldset>
+        <legend>Set Program options</legend>
+        
+        <fieldset>
+          <legend>Program Mode</legend>
+          
+          <div>
+            <input type="radio" id="encode" name="mode" value="E" />
+            <label for="encode">Encode</label>
+          </div>
+      
+          <div>
+            <input type="radio" id="decode" name="mode" value="D" />
+            <label for="dewcode">Decode</label>
+          </div>
+          
+        </fieldset>
+        
+        <fieldset>
+          <legend>Key Mode</legend>
+          
+          <div>
+            <input type="radio" id="ascii" name="keymode" value="A" />
+            <label for="ascii">Turn Input into Ascii Codes</label>
+          </div>
+      
+          <div>
+            <input type="radio" id="direct" name="keymode" value="D" />
+            <label for="direct">Directly Input Key</label>
+          </div>
+          
+        </fieldset>
+        
+        <div>
+          <input type="text" id="key" placeholder="Input Key" />
+          <input type="text" id="input" placeholder="Input Text" />
+        </div>
+        
+        <div>
+          <button type="submit">Start</button>
+        </div>
+      </fieldset>
+    </form>
+    <div id="output"></div>
+    <script type="py" src="./main.py" config="./pyscript.toml" worker></script>
+    
 </body>
 </html>
