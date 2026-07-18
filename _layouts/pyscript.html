@@ -1,67 +1,92 @@
+<!doctype html>
 <html lang="en">
-<head>
-    <title>M-ED Test</title>
-
-    <!-- Recommended meta tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <!-- PyScript CSS -->
-    <link rel="stylesheet" href="https://pyscript.net/releases/2026.3.1/core.css">
-
-    <!-- This script tag bootstraps PyScript -->
-    <script type="module" src="https://pyscript.net/releases/2026.3.1/core.js"></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>M-ED Interactive</title>
+        <script src="./offline/mini-coi-fd.js"></script>
+        <script type="module" src="./offline/pyscript/core.js" offline></script>
+        <link rel="stylesheet" href="./offline/pyscript/core.css">
+    </head>
 <body>
 
     {{ content }}
+
+    <fieldset>
+        <legend>Additional Options</legend>
+
+            <div>
+                <div>
+                    <span>Upload file instead of typing input</span>
+                </div>
+                <div>
+                    <input type="file" id="upl" disabled>
+                </div>
+                <div>
+                    <button id="rst-file" style='margin-bottom: 30px;' disabled>Reset File</button>
+                </div>
+            </div>
+
+            <div>
+                <input type="checkbox" id="outtofile" />
+                <label for="outtofile">Output to File</label>
+            </div>
+        
+    </fieldset>
     
-    <form>
-      <fieldset>
+    <fieldset>
         <legend>Set Program options</legend>
         
         <fieldset>
-          <legend>Program Mode</legend>
+            <legend>Program Mode</legend>
           
-          <div>
-            <input type="radio" id="encode" name="mode" value="E" />
-            <label for="encode">Encode</label>
-          </div>
+            <div>
+                <input type="radio" id="encode" name="mode" value="Encode" checked />
+                <label for="encode">Encode</label>
+            </div>
       
-          <div>
-            <input type="radio" id="decode" name="mode" value="D" />
-            <label for="dewcode">Decode</label>
-          </div>
+            <div>
+                <input type="radio" id="decode" name="mode" value="Decode" />
+                <label for="decode">Decode</label>
+            </div>
           
         </fieldset>
         
         <fieldset>
-          <legend>Key Mode</legend>
+            <legend>Key Mode</legend>
           
-          <div>
-            <input type="radio" id="ascii" name="keymode" value="A" />
-            <label for="ascii">Turn Input into Ascii Codes</label>
-          </div>
+            <div>
+                <input type="radio" id="ascii" name="keymode" value="Ascii" checked />
+                <label for="ascii">Turn Input into Ascii Codes</label>
+            </div>
       
-          <div>
-            <input type="radio" id="direct" name="keymode" value="D" />
-            <label for="direct">Directly Input Key</label>
-          </div>
+            <div>
+                <input type="radio" id="direct" name="keymode" value="Direct" />
+                <label for="direct">Directly Input Key</label>
+            </div>
           
         </fieldset>
         
         <div>
-          <input type="text" id="key" placeholder="Input Key" />
-          <input type="text" id="input" placeholder="Input Text" />
+            <input type="text" id="key" placeholder="Input Key" />
+            <input type="text" id="input" placeholder="Input Text" />
         </div>
         
         <div>
-          <button type="submit">Start</button>
+            <button type="submit" id="start-button" disabled >Start</button>
         </div>
-      </fieldset>
-    </form>
-    <div id="output"></div>
-    <script type="py" src="./main.py" config="./pyscript.toml" worker></script>
+    </fieldset>
+        
+    <div>
+        <fieldset>
+            <legend>Output</legend>
+            <div id="output">
+                <span style='color: steelblue;font-weight:bold;'>MPY Loading...</span>
+            </div>
+        </fieldset>
+    </div>
+    
+    <script type="mpy" src="./main.py" config="./pyscript.toml" worker terminal></script>
     
 </body>
 </html>

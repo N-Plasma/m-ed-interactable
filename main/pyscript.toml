@@ -1,0 +1,5 @@
+name = "M-ED Test"
+packages = ["time"]
+
+# The Original Code (Made by Me) :https://codeberg.org/N_Plasma/Multiplatform-Encrypt_Decrypt
+# Thanks to "neon22." in the pyscript discord for helping when i got stuck
